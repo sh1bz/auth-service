@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: co.lykia
+testFramework: kotest
+sourceLanguage: kotlin
+buildTool: gradle_kotlin
+features: [annotation-api, app-name, aws-lambda, aws-lambda-handler-default, gradle, jackson-databind, kotest, kotlin, kotlin-application, kotlin-build, micronaut-build, readme, security-annotations, security-jwt, shade, slf4j-simple, snapstart, x86, yaml]

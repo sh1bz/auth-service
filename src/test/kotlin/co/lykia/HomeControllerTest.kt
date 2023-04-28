@@ -1,0 +1,22 @@
+package co.lykia
+import com.amazonaws.serverless.proxy.internal.testutils.MockLambdaContext
+import com.amazonaws.serverless.proxy.model.AwsProxyRequest
+import com.amazonaws.services.lambda.runtime.Context
+import io.kotest.core.spec.style.StringSpec
+import io.kotest.matchers.shouldBe
+import io.micronaut.function.aws.proxy.MicronautLambdaHandler
+
+class HomeControllerTest : StringSpec({
+
+    "test book controller" {
+        val handler = MicronautLambdaHandler()
+        val lambdaContext: Context = MockLambdaContext()
+        val request = AwsProxyRequest()
+        request.httpMethod = "GET"
+        request.path = "/"
+        var  response = handler.handleRequest(request, lambdaContext)
+        response.statusCode.shouldBe(200)
+        response.body.shouldBe("{\"message\":\"Hello World\"}")
+        handler.applicationContext.close()
+    }
+})
